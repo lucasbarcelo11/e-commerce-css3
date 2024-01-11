@@ -2,7 +2,7 @@ const CardProducts = ({ product }) => {
   return (
     <article className="border w-72 h-96">
       <header className="flex h-36 w-36 justify-center">
-        <img src={product.image} alt="images" />
+        <img src={product.images[0].url} alt="images" />
       </header>
       <section className="flex flex-col ">
         <h4>Title</h4>
