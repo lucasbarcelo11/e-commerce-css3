@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form"
 import useAuth from "../hooks/useAuth"
+import { useNavigate } from "react-router-dom"
 
 
 const Login = () => {
@@ -8,8 +9,10 @@ const Login = () => {
 
   const {loginUser} = useAuth()
 
+  const navigate = useNavigate()
+
   const submit = data => {
-    loginUser(data)
+    loginUser(data, navigate)
   }
 
   return (

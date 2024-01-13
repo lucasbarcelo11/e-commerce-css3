@@ -12,11 +12,18 @@ const useAuth = () => {
          .catch(err => console.log(err))
     }
 
-    const loginUser = (data) => {
+    const loginUser = (data, navigate) => {
         const url = 'https://e-commerce-api-v2.academlo.tech/api/v1/users/login'
         axios.post(url, data)
-         .then(res => console.log(res.data))
-         .catch(err => console.log(err))
+         .then(res => {
+            console.log(res.data)
+            localStorage.setItem('token', res.data.token)
+            navigate('/')
+        })
+         .catch(err => {
+            console.log(err)
+            localStorage.removeItem('token')
+        })
     }
 
     return {createUser, loginUser}
