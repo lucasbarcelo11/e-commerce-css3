@@ -8,24 +8,26 @@ const CardProducts = ({ product }) => {
     navigate(`/product/${product.id}`)
   }
 
+  console.log(product)
+
   const handleAddCart = e => {
     e.stopPropagation()
   }
 
   return (
-    <article onClick={handleNavigate} className="border w-72 h-96">
-      <header className="flex h-36 w-36 justify-center">
-        <img src={product.images[0].url} alt="images" />
+    <article onClick={handleNavigate} className="border rounded-xl w-full max-w-80 ">
+      <header className="p-5 aspect-square border-y-2">
+        <img className="w-full h-full object-contain" src={product.images[0].url} alt="images" />
       </header>
-      <section className="flex flex-col ">
-        <h4>Title</h4>
-        <h2>{product.title}</h2>
+      <section className="p-6 grid grid-cols-2 gap-3">
+        <h4 className="col-span-2 text-xs pl-2 text-gray-500">{product.brand}</h4>
+        <h2 className="text-lg font-medium mb-3 col-span-2">{product.title}</h2>
         <article>
-            <h3>Price</h3>
-            <span>${product.price}</span>
+            <h3 className="text-xs pl-2 text-gray-500">Price</h3>
+            <span className="text-lg font-medium mb-3">${product.price}</span>
         </article>
-        <button onClick={handleAddCart}>
-            <i className='bx bx-cart'></i>
+        <button className="text-white text-2xl bg-blue-700 rounded-3xl w-12 ml-16" onClick={handleAddCart}>
+            <i  className='bx bx-cart'></i>
         </button>
       </section>
     </article>
