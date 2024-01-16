@@ -1,6 +1,19 @@
+import { useNavigate } from "react-router-dom";
+
 const CardProducts = ({ product }) => {
+
+  const navigate = useNavigate()
+
+  const handleNavigate = () => {
+    navigate(`/product/${product.id}`)
+  }
+
+  const handleAddCart = e => {
+    e.stopPropagation()
+  }
+
   return (
-    <article className="border w-72 h-96">
+    <article onClick={handleNavigate} className="border w-72 h-96">
       <header className="flex h-36 w-36 justify-center">
         <img src={product.images[0].url} alt="images" />
       </header>
@@ -11,7 +24,7 @@ const CardProducts = ({ product }) => {
             <h3>Price</h3>
             <span>${product.price}</span>
         </article>
-        <button>
+        <button onClick={handleAddCart}>
             <i className='bx bx-cart'></i>
         </button>
       </section>
