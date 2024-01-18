@@ -15,7 +15,7 @@ const CardProducts = ({ product }) => {
   }
 
   return (
-    <article onClick={handleNavigate} className="border rounded-xl w-full max-w-80 ">
+    <article onClick={handleNavigate} className="bg-white border rounded-xl transition-transform duration-150 ease-in-out transform hover:scale-105 cursor-pointer w-full max-w-80 ">
       <header className="p-5 aspect-square border-y-2">
         <img className="w-full h-full object-contain" src={product.images[0].url} alt="images" />
       </header>
@@ -26,7 +26,7 @@ const CardProducts = ({ product }) => {
             <h3 className="text-xs pl-2 text-gray-500">Price</h3>
             <span className="text-lg font-medium mb-3">${product.price}</span>
         </article>
-        <button className="text-white text-2xl bg-blue-700 rounded-3xl w-12 ml-16" onClick={handleAddCart}>
+        <button className="text-white text-2xl grayscale bg-blue-700 hover:grayscale-0 rounded-3xl w-12 ml-16" onClick={handleAddCart}>
             <i  className='bx bx-cart'></i>
         </button>
       </section>
