@@ -1,17 +1,24 @@
 import { useNavigate } from "react-router-dom";
+import useCartApi from "../../hooks/useCartApi";
 
 const CardProducts = ({ product }) => {
 
   const navigate = useNavigate()
 
+  const {addProductInCart} = useCartApi()
+
   const handleNavigate = () => {
     navigate(`/product/${product.id}`)
   }
 
-  console.log(product)
 
   const handleAddCart = e => {
     e.stopPropagation()
+    const data = {
+      quantity: 1,
+      productId: product.id
+    }
+    addProductInCart(data)
   }
 
   return (
