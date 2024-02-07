@@ -1,4 +1,5 @@
 import { useState } from "react"
+import useCartApi from "../../hooks/useCartApi"
 
 
 const ProductInfo = ({product}) => {
@@ -13,6 +14,16 @@ const ProductInfo = ({product}) => {
 
     const handlePlus = () => {
         setCounter(counter + 1)
+    }
+
+    const {addProductInCart} = useCartApi()
+
+    const handleAddCart = () => {
+      const data = {
+        quantity: counter,
+        productId: product.id
+      }
+      addProductInCart(data)
     }
 
   return (
@@ -33,7 +44,7 @@ const ProductInfo = ({product}) => {
         </div>
       </section>
       <footer>
-        <button>Add to Cart <i className='bx bx-cart'></i></button>
+        <button onClick={handleAddCart}>Add to Cart <i className='bx bx-cart'></i></button>
       </footer>
     </article>
   )

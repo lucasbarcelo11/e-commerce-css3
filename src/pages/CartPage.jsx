@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getCartThunk } from "../store/slices/cart.slice"
 import { useEffect } from "react"
 import ProductInCart from "../components/CartPage/ProductInCart"
+import usePurchases from "../hooks/usePurchases"
 
 const CartPage = () => {
 
@@ -13,7 +14,17 @@ const CartPage = () => {
     dispatch(getCartThunk())
   }, [])
 
-  console.log(cart)
+  const totalPrice = cart.reduce((acc, cv) => {
+    const subTotal = cv.quantity * cv.product.price 
+    return acc + subTotal
+  }, 0)
+
+  const {makePurchases} = usePurchases()
+
+  const handleCheckout = () => {
+    makePurchases()
+  }
+
   return (
     <section>
       <h2>Cart</h2>
@@ -27,6 +38,11 @@ const CartPage = () => {
           ))
         }
       </div>
+      <footer>
+        <span>Total</span>
+        <h3>${totalPrice}</h3>
+        <button onClick={handleCheckout}>Checkout</button>
+      </footer>
     </section>
   )
 }

@@ -21,8 +21,8 @@ const ProductInCart = ({prodCart}) => {
         <button onClick={handleDeleteCart}><i className='bx bx-trash'></i></button>
       </section>
       <footer>
-        <span>subTotal: </span>
-        <span>{prodCart.product.price}</span>
+        <span>subTotal: $</span>
+        <span>{prodCart.product.price * prodCart.quantity}</span>
       </footer>
     </article>
   )

@@ -28,6 +28,8 @@ const useCartApi = () => {
         })
          .catch(err => console.log(err))
     }
+    //UPDATE 
+    
 
     return {addProductInCart, deleteProductInCart}
 }
