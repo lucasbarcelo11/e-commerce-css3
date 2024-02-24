@@ -1,4 +1,3 @@
-
 import useCartApi from "../../hooks/useCartApi"
 
 const ProductInCart = ({prodCart}) => {
