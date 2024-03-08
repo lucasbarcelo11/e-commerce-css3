@@ -18,19 +18,17 @@ const SimilarProduct = ({ product }) => {
   }
 
   return (
-    <div>
-        <h3>Similar Product</h3>
-        <div>
-            {
-                productsByCategory?.filter(cbFilter).map(prod => (
-                    <CardProduct
-                        key={prod.id}
-                        product={prod}
-                    />
-                ))
-            }
-        </div>
+    <div className="flex flex-col items-center">
+    <h3 className="text-center">Similar Product</h3>
+    <div className="grid lg:grid-cols-3 mt-10 gap-16 sm:grid-cols-2 sm:justify-center">
+        {productsByCategory?.filter(cbFilter).map(prod => (
+            <CardProduct
+                key={prod.id}
+                product={prod}
+            />
+        ))}
     </div>
+</div>
   )
 };
 
