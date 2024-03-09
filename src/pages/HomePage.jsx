@@ -10,8 +10,8 @@ const HomePage = () => {
   const [nameValue, setNameValue] = useState("");
   const [fromTo, setFromTo] = useState({
     from: 0,
-    to: Infinity
-  })
+    to: Infinity,
+  });
 
   const inputName = useRef();
 
@@ -19,33 +19,37 @@ const HomePage = () => {
     setNameValue(inputName.current.value);
   };
 
-  const cbFilter = prod => {
+  const cbFilter = (prod) => {
     //Filter By name
-    const inputNameLower = nameValue.toLowerCase().trim()
-    const nameReal = prod.title.toLowerCase()
-    const filterName = nameReal.includes(inputNameLower)
+    const inputNameLower = nameValue.toLowerCase().trim();
+    const nameReal = prod.title.toLowerCase();
+    const filterName = nameReal.includes(inputNameLower);
     //Filter By Price
-    const price = Number(prod.price)
-    const filterPrice = fromTo.from <= price && price <= fromTo.to
+    const price = Number(prod.price);
+    const filterPrice = fromTo.from <= price && price <= fromTo.to;
 
-    return filterName && filterPrice
-  }
+    return filterName && filterPrice;
+  };
 
   return (
-    <div>
-      <input
-        className="border"
-        value={nameValue}
-        ref={inputName}
-        onChange={onChangeFilterName}
-        type="text"
-      />
-      <FilterCategory/>
-      <FilterPrice setFromTo={setFromTo}/>
-      <div className="flex flex-wrap gap-4 justify-center">
-        {products?.filter(cbFilter).map((prod) => (
-          <CardProducts key={prod.id} product={prod} />
-        ))}
+    <div className="flex">
+      <div className="w-[20%]">
+        <input
+          className="border flex "
+          value={nameValue}
+          ref={inputName}
+          onChange={onChangeFilterName}
+          type="text"
+        />
+        <FilterCategory />
+        <FilterPrice setFromTo={setFromTo} />
+      </div>
+      <div className="w-3/4 mt-32">
+        <div className="flex flex-wrap gap-4 justify-center">
+          {products?.filter(cbFilter).map((prod) => (
+            <CardProducts key={prod.id} product={prod} />
+          ))}
+        </div>
       </div>
     </div>
   );
