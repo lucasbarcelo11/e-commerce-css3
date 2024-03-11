@@ -21,7 +21,7 @@ const FilterCategory = () => {
   }
 
   return (
-    <details>
+    <details open='true'>
       <summary>Category</summary>
       <ul>
         <li onClick={handleAllCategories}>All Categories</li>

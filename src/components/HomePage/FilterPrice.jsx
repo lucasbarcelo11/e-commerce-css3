@@ -16,7 +16,7 @@ const FilterPrice = ({setFromTo}) => {
 
   return (
     <article>
-      <details>
+      <details open='true'>
         <summary>Price</summary>
         <form onSubmit={handleSubmit(submit)}>
             <div>

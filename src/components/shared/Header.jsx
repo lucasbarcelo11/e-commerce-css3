@@ -2,30 +2,30 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="flex items-center justify-between px-6 py-4 bg-gray-900 text-white">
+    <header className="flex items-center justify-between px-6 py-4 bg-blue-700  text-white">
       <Link to="/" className="text-xl font-semibold">
         E-commerce
       </Link>
       <nav>
         <ul className="flex space-x-4 lg:mr-10 lg:gap-10">
-          <li>
+          <li className="text-3xl">
             <Link to="/login" className="hover:text-gray-400">
-              Login
+              <i className="bx bx-user-circle"></i>
             </Link>
           </li>
-          <li>
+          <li className="text-3xl">
             <Link to="/register" className="hover:text-gray-400">
-              Register
+              <i className="bx bx-log-in"></i>
             </Link>
           </li>
-          <li>
+          <li className="text-3xl">
             <Link to="/cart" className="hover:text-gray-400">
-              Cart
+              <i class="bx bx-cart"></i>
             </Link>
           </li>
-          <li>
+          <li className="text-3xl">
             <Link to="/purchases" className="hover:text-gray-400">
-              Purchases
+              <i class="bx bx-shopping-bag"></i>
             </Link>
           </li>
         </ul>

@@ -32,19 +32,19 @@ const HomePage = () => {
   };
 
   return (
-    <div className="flex">
-      <div className="w-[20%]">
+    <div className="flex w-full h-screen">
+      <div className="lg:w-[20%] sm:w-full mt-20">
+        <FilterCategory />
+        <FilterPrice setFromTo={setFromTo} />
+      </div>
+      <div className="lg:w-3/4 mt-12 gap-10 flex flex-col items-center sm:w-full">
         <input
-          className="border flex "
+          className="border border-blue-700  rounded-md w-[60%] px-4 py-2 focus:outline-none focus:border-blue-700"
           value={nameValue}
           ref={inputName}
           onChange={onChangeFilterName}
           type="text"
         />
-        <FilterCategory />
-        <FilterPrice setFromTo={setFromTo} />
-      </div>
-      <div className="w-3/4 mt-32">
         <div className="flex flex-wrap gap-4 justify-center">
           {products?.filter(cbFilter).map((prod) => (
             <CardProducts key={prod.id} product={prod} />
