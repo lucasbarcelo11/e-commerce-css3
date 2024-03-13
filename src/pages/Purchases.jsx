@@ -13,8 +13,8 @@ const Purchases = () => {
   console.log(purchases)
 
   return (
-    <section>
-      <h2>My Purchases</h2>
+    <section className="mt-24 flex flex-col justify-center items-center">
+      <h2 className="text-xl font-semibold">My Purchases</h2>
       <div>
         {
           purchases?.map(purch => (
