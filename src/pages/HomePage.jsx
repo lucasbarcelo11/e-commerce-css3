@@ -32,14 +32,14 @@ const HomePage = () => {
   };
 
   return (
-    <div className="flex w-full h-screen">
-      <div className="lg:w-[20%] sm:w-full mt-20">
+    <div className="flex w-full h-screen mt-8">
+      <div className="lg:w-[20%] sm:w-full mt-32 ml-4 space-y-6 ">
         <FilterCategory />
         <FilterPrice setFromTo={setFromTo} />
       </div>
       <div className="lg:w-3/4 mt-12 gap-10 flex flex-col items-center sm:w-full">
         <input
-          className="border border-blue-700  rounded-md w-[60%] px-4 py-2 focus:outline-none focus:border-blue-700"
+          className="border-2 border-blue-700 rounded-md w-[60%] px-4 py-2 focus:outline-none focus:border-blue-700 bg-gradient-to-r from-blue-50 to-blue-100 text-gray-800 placeholder-gray-500"
           value={nameValue}
           ref={inputName}
           onChange={onChangeFilterName}
